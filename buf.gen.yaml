@@ -1,0 +1,14 @@
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/pantapasen/tensorflow-serving-apis-proto/go
+plugins:
+  - plugin: go
+    out: go/
+    opt:
+      - paths=source_relative
+  - plugin: go-grpc
+    out: go/
+    opt:
+      - paths=source_relative
