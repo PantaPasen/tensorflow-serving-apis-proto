@@ -1,13 +1,13 @@
 #!/bin/bash
 set -ex
 
-TF_VERSION=2.15.0
-TFS_VERSION=2.14.1
+TF_VERSION=2.16.1
+TFS_VERSION=2.16.1
 TMP=tmp
 
 function main() {
     target_path=$(realpath .)
-    rm -rf $TMP tensorflow tensorflow_serving tsl
+    rm -rf $TMP tensorflow tensorflow_serving tsl xla
     mkdir -p $TMP
 
     fetchTFSApi $target_path
@@ -16,6 +16,7 @@ function main() {
 
     find ./tensorflow -type d -empty -delete
     find ./tensorflow_serving -type d -empty -delete
+    rm -rf tmp
 }
 
 function fetchTFSApi() {
